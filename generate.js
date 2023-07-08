@@ -1,11 +1,11 @@
 const fs = require('fs')
-const kanji = require('./kanken_json.json')
+const kanji = require('./kanji_i2.json')
 
-const FILE = 'partition.html'
+const FILE = 'partitions.html'
 
 const list =
   kanji
-    .map(({ kanji,_,jisho_link }) => `<a href="${jisho_link}">${kanji}</a>`)
+    .map(record => `<a href="https://jisho.org/search/${record.kanji}%20%23kanji">${record.kanji}</a>`)
 
 fs.writeFileSync(
   FILE,
