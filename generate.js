@@ -17,7 +17,7 @@ const list =
 
       return result
     },[])
-    .map((items,index) => `<div class=section id=section_${index + 1}>${index * 100 + 1}-${(index + 1) * 100}</div><div class="partition">${items.join("\n")}</div>`)
+    .map((items,index) => `<a href="#section_${index + 1}"><div class=section id=section_${index + 1}>${index * 100 + 1}-${(index + 1) * 100}</div></a><div class="partition">${items.join("\n")}</div>`)
 
 fs.writeFileSync(
   FILE,
