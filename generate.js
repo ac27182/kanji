@@ -6,10 +6,20 @@ const FILE = 'partitions.html'
 const list =
   kanji
     .map(record => `<a href="https://jisho.org/search/${record.kanji}%20%23kanji">${record.kanji}</a>`)
+    .reduce((result,item,index) => {
+      const chunkIndex = Math.floor(index / 100)
+
+      if (result[chunkIndex] === undefined) {
+        result[chunkIndex] = []
+      }
+
+      result[chunkIndex].push(item)
+
+      return result
+    },[])
+    .map((items,index) => `<div class=section id=section_${index + 1}>${index * 100 + 1}-${(index + 1) * 100}</div><div class="partition">${items.join("\n")}</div>`)
 
 fs.writeFileSync(
   FILE,
-  `<div class="partition">
-    ${list.join("\n")}
-  </div>`
+  list.join("\n")
 )   

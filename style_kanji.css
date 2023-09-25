@@ -49,6 +49,26 @@
   text-align: center;
 }
 
+.section {
+  max-width: 700px;
+
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  text-align: center;
+
+
+  transition: 3s;
+
+}
+
+.section:hover {
+  background-color: #FEC8D8;
+  transition: none;
+}
+
 
 .container {
   height: 100%;
