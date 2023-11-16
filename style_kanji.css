@@ -8,7 +8,7 @@
   font-family: 'Inconsolata', monospace;
 }
 
-.partition>:nth-child(50n +1) {
+.partition>:nth-child(20n +1) {
   background-color: #c8feee;
 }
 
