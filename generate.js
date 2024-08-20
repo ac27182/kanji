@@ -20,25 +20,25 @@ const base = {
 }
 
 const grouped = kanji
-  .reduce((result,item) => {
+  .reduce((result, item) => {
     result[item.grade].push(item.kanji)
     return result
-  },base)
+  }, base)
 
-const sorted = Object.entries(grouped).sort((x,y) => Number(y[0]) - Number(x[0]))
+const sorted = Object.entries(grouped).sort((x, y) => Number(y[0]) - Number(x[0]))
 
-const jisho = sorted.map(([grade,kanjis]) => {
-    const cells = kanjis.map(kanji => `<a href="https://jisho.org/search/${kanji}%20%23kanji">${kanji}</a>`)
+const jisho = sorted.map(([grade, kanjis]) => {
+  const cells = kanjis.map(kanji => `<a onclick="copy('${kanji}')">${kanji}</a>`)
 
-    return `<a href="#grade_${grade}"><div class=section id=grade_${grade}>${grade}</div></a><div class="partition">${cells.join("")}</div>`
-  })
+  return `<a href="#grade_${grade}"><div class=section id=grade_${grade}>${grade}</div></a><div class="partition">${cells.join("")}</div>`
+})
   .join("\n")
 
-const sentances = sorted.map(([grade,kanjis]) => {
-    const cells = kanjis.map(kanji => `<a href="https://ac27182.github.io/sentances/compiled/sentances.html?query=${kanji}">${kanji}</a>`)
+const sentances = sorted.map(([grade, kanjis]) => {
+  const cells = kanjis.map(kanji => `<a href="https://ac27182.github.io/sentances/compiled/sentances.html?query=${kanji}">${kanji}</a>`)
 
-    return `<a href="#grade_${grade}"><div class=section id=grade_${grade}>${grade}</div></a><div class="partition">${cells.join("")}</div>`
-  })
+  return `<a href="#grade_${grade}"><div class=section id=grade_${grade}>${grade}</div></a><div class="partition">${cells.join("")}</div>`
+})
   .join("\n")
 
 
@@ -50,6 +50,14 @@ const makePage = (partitions) => `
 <head>
   <link rel="stylesheet" href="./style_kanji.css">
 </head>
+
+<script>
+  async function copy(element) {
+    return navigator
+      .clipboard
+      .writeText(element)
+  }
+</script>
 
 <body class="container">${partitions}</body>
 

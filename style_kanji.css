@@ -16,6 +16,8 @@
 .partition>:hover {
   background-color: #FEC8D8;
   transition: none;
+  cursor: pointer;
+
 }
 
 .partition>a {
@@ -27,6 +29,8 @@
   height: 60px;
 
   transition: 3s;
+
+  cursor: pointer;
 }
 
 .partition {
