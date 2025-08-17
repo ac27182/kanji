@@ -24,10 +24,17 @@ const grouped = kanji
     return result
   },base)
 
+
+const mappings =
+  new Map(fs
+    .readFileSync('./lookup.txt','utf8')
+    .split('\n')
+    .map(mapping => mapping.split('\t')))
+
 const sorted = Object.entries(grouped).sort((x,y) => Number(y[0]) - Number(x[0]))
 
 const jisho = sorted.map(([grade,kanjis]) => {
-  const cells = kanjis.map(kanji => `<a href="https://jisho.org/search/${kanji}%20%23kanji">${kanji}</a>`)
+  const cells = kanjis.map(kanji => `<a href="https://www.kanjipedia.jp/kanji/${mappings.get(kanji)}#contentsWrapper">${kanji}</a>`)
 
   return `<a href="#grade_${grade}"><div class=section id=grade_${grade}>${grade}</div></a><div class="partition">${cells.join("")}</div>`
 })
