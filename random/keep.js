@@ -10,8 +10,8 @@ const template = (shinjitai,meaning,strokes,radical,readings,kyujitai) => `
   <script src="../change.js"></script>
 </head>
 
-<body>
-  <div class="main-kanji" onclick="change()">${shinjitai}</div>
+<body onclick="change()">
+  <div class="main-kanji">${shinjitai}</div>
   <div class="details">
     <div class="reading">${meaning}</div>
     <div>${strokes}</div>
