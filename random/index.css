@@ -1,0 +1,49 @@
+* {
+  text-align: left;
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 50vh 1fr;
+  /* justify-content: center;
+  align-items: center; */
+  height: 100vh;
+  /* flex-direction: column; */
+}
+
+.main-kanji {
+  font-size: 500px;
+  /* border: 1px solid black; */
+
+}
+
+.details {
+  height: 100%;
+  font-size: 80px;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 20 20 20 20 20;
+
+}
+
+.reading {
+  max-width: 100vw;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  /* white-space: wrap; */
+  overflow: scroll;
+}
+
+div {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
