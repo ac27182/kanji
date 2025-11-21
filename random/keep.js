@@ -13,11 +13,13 @@ const template = (shinjitai,meaning,strokes,radical,readings,kyujitai) => `
 <body onclick="change()">
   <div class="main-kanji">${shinjitai}</div>
   <div class="details">
+    <div class="kanji-meta">
+      <div>${strokes}</div>
+      <div>${radical}</div>
+      <div>${kyujitai === "" ? "◯" : kyujitai}</div>
+    </div>
     <div class="reading">${meaning}</div>
-    <div>${strokes}</div>
-    <div>${radical}</div>
     <div class="reading">${readings}</div>
-    <div>${kyujitai}</div>
   </div>
 </body>
 
