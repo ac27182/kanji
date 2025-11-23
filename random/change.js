@@ -1,5 +1,5 @@
 
-const MAX = 2137
+const MAX = 250
 
 const change = () => {
   const n = Math.floor(Math.random() * MAX);
@@ -8,7 +8,7 @@ const change = () => {
 
   href.pop()
 
-  href.push(`${n}.html`)
+  href.push(`${1000 + n}.html`)
 
   window.location.href = href.join("/")
 }
