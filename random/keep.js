@@ -19,7 +19,7 @@ const template = (shinjitai,meaning,strokes,radical,readings,kyujitai) => `
       <div>${kyujitai === "" ? "◯" : kyujitai}</div>
     </div>
     <div class="reading">${meaning}</div>
-    <div class="reading">${readings}</div>
+    <div class="yomi-kata">${readings.map(reading => `<div class="yomi">${reading}</div>`).join('\n')}</div>
   </div>
 </body>
 
@@ -34,21 +34,14 @@ console.log(
 file
   .forEach((kanji,index) => {
 
-    const i = kanji
-      .readings
-      .split('')
-      .findIndex(value => {
-        const charcode = value.charCodeAt(0)
+    const html = template(
+      kanji.shinjitai,
+      kanji.meaning,
+      kanji.strokes,
+      kanji.radical,
+      kanji.readings,
+      kanji.kyujitai
+    )
 
-        if (charcode >= 0x0061 && charcode <= 0x007A) {
-          return true
-        } else {
-          return false
-        }
-      })
-
-    const readingf = kanji.readings.substring(0,i)
-
-    const html = template(kanji.shinjitai,kanji.meaning,kanji.strokes,kanji.radical,readingf,kanji.kyujitai)
     fs.writeFileSync(`./pages/${index + 1}.html`,html,'utf8')
   })

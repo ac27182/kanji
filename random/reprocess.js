@@ -41,4 +41,38 @@ file.forEach((item,index) => {
 })
 
 
+
+file.forEach((item,index) => {
+  let flag = true
+  const readingf =
+    item
+      .readings
+      .split('')
+      .filter(item => {
+        if (item.charCodeAt(0) >= 0x0061 && item.charCodeAt(0) <= 0x007A) {
+          flag = false
+        }
+        // if (item.charCodeAt(0) >= 0x0080 && item.charCodeAt(0) <= 0x00FF) {
+        //   return false
+        // }
+        // if (item.charCodeAt(0) >= 0x0100 && item.charCodeAt(0) <= 0x017F) {
+        //   return false
+        // }
+        return flag
+      })
+      .map(item => {
+        switch (item) {
+          case "（": return "「"
+          case "）": return "」"
+          case "-": return "・"
+          default: return item
+        }
+      })
+      .join('')
+      .split('、')
+
+  item.readings = readingf
+})
+
+
 fs.writeFileSync("./joyo_kanji_new.json",JSON.stringify(file,null,4),'utf-8')
