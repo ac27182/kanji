@@ -76,6 +76,8 @@ body {
   border-left: 0.5px black solid;
   border-right: 0.5px black solid;
   height: 100%;
+  z-index: 100;
+  position: relative;
 }
 
 div {

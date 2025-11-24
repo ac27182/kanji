@@ -15,11 +15,23 @@ const template = (shinjitai,meaning,strokes,radical,readings,kyujitai) => `
   <div class="details">
     <div class="kanji-meta">
       <div>${strokes}</div>
-      <div>${radical}</div>
+      <div><a target="_blank" href="https://jisho.org/search/${radical}%20%23kanji">${radical}</a></div>
       <div>${kyujitai === "" ? "◯" : kyujitai}</div>
     </div>
     <div class="reading">${meaning}</div>
-    <div class="yomi-kata">${readings.map(reading => `<div class="yomi">${reading}</div>`).join('\n')}</div>
+    <div class="yomi-kata">${readings
+    .map(reading => `<div class="yomi" href="https://jisho.org/search/${shinjitai}%20${reading
+      .replace("・","")
+      .split('')
+      .map(char => {
+        if (char.charCodeAt(0) >= 0x30A1 && char.charCodeAt(0) >= 0x30F7) {
+          return String.fromCharCode(char.charCodeAt(0) - 0x0060)
+        } else {
+          return char
+        }
+      })
+      .join('')
+      }" >${reading}</div>`).join('\n')}</div>
   </div>
 </body>
 
