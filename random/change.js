@@ -28,7 +28,7 @@ const initialise = () => {
 
   const base = Number(localStorage.getItem(BASE_KEY)) ?? 1000
 
-  for (i = 0; i < MAX; i++) array.push(i + localStorage.getItem(BASE_KEY))
+  for (i = 0; i < MAX; i++) array.push(i + base)
 
   array.sort(() => Math.random() - 0.5)
 
