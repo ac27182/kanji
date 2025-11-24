@@ -28,7 +28,22 @@ body {
   margin-top: 0;
   overflow: hidden;
   /* grid-template-rows: 20 20 20 20 20; */
+  animation-name: fade;
+  animation-duration: 4s;
+}
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .reading {

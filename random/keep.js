@@ -8,7 +8,6 @@ const template = (shinjitai,meaning,strokes,radical,readings,kyujitai) => `
 <head>
   <link rel="stylesheet" href="../index.css">
   <script src="../change.js"></script>
-  <link rel="manifest" href="manifest.json">
 </head>
 
 <body onclick="change()">
