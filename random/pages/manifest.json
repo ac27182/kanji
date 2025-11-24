@@ -5,5 +5,5 @@
   "icons": [],
   "name": "random_kanji",
   "short_name": "random_kanji",
-  "start_url": "/1.html"
+  "start_url": "/kanji/random/pages/1.html"
 }
