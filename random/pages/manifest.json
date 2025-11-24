@@ -1,0 +1,9 @@
+{
+  "background_color": "purple",
+  "description": "shows simple kanji cards.",
+  "display": "fullscreen",
+  "icons": [],
+  "name": "random_kanji",
+  "short_name": "random_kanji",
+  "start_url": "/1.html"
+}
