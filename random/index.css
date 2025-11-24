@@ -10,14 +10,13 @@
 body {
   display: grid;
   grid-template-columns: 1;
-  grid-template-rows: 50vh 1fr;
-  height: 100vh;
+  grid-template-rows: 45% 55%;
+  height: 100%;
 }
 
 .main-kanji {
   font-size: 500px;
   /* border: 1px solid black; */
-
 }
 
 .details {
@@ -49,7 +48,6 @@ body {
   flex-direction: column-reverse;
   height: 600px;
   overflow: scroll;
-
 }
 
 *::-webkit-scrollbar {
